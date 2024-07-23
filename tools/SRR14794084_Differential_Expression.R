@@ -213,8 +213,8 @@ RBN012337_dose_300nM_time_6hr_up <- rownames(resOrdered[!is.na(resOrdered$padj) 
 RBN012337_dose_300nM_time_6hr_down <- rownames(resOrdered[!is.na(resOrdered$padj) & resOrdered$padj < 0.1 & resOrdered$log2FoldChange < 0,])
 
 
-dds <- DESeqDataSetFromMatrix(countData=round(df[,coldf$dosage %in% c("300nM","NA") & coldf$time == "24hr" & coldf$reagent %in% c("RBN012397","DMSO")]), 
-                              colData=coldf[coldf$dosage %in% c("300nM","NA") & coldf$time == "24hr" & coldf$reagent %in% c("RBN012397","DMSO"),],
+dds <- DESeqDataSetFromMatrix(countData=round(df[,coldf$dosage %in% c("300nM","NA") & coldf$time == "24hr" & coldf$reagent %in% c("RBN012337","DMSO")]), 
+                              colData=coldf[coldf$dosage %in% c("300nM","NA") & coldf$time == "24hr" & coldf$reagent %in% c("RBN012337","DMSO"),],
                               design = ~ reagent)
 
 dds <- DESeq(dds)
@@ -223,5 +223,5 @@ res
 
 resOrdered <- res[order(res$padj),]
 
-RBN012397_dose_300nM_time_24hr_up <- rownames(resOrdered[!is.na(resOrdered$padj) & resOrdered$padj < 0.1 & resOrdered$log2FoldChange > 0,])
-RBN012397_dose_300nM_time_24hr_down <- rownames(resOrdered[!is.na(resOrdered$padj) & resOrdered$padj < 0.1 & resOrdered$log2FoldChange < 0,])
+RBN012337_dose_300nM_time_24hr_up <- rownames(resOrdered[!is.na(resOrdered$padj) & resOrdered$padj < 0.1 & resOrdered$log2FoldChange > 0,])
+RBN012337_dose_300nM_time_24hr_down <- rownames(resOrdered[!is.na(resOrdered$padj) & resOrdered$padj < 0.1 & resOrdered$log2FoldChange < 0,])
